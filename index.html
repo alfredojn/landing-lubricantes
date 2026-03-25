@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LubriControl | Toma el control de tu Lubricentro</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'><path d='M240,112H210.3l-34.6-48.4A16.2,16.2,0,0,0,162.6,56H72a15.9,15.9,0,0,0-14.3,8.9L30.9,112H16a8,8,0,0,0-8,8v64a8,8,0,0,0,8,8H37.1A32.1,32.1,0,0,0,64,208a32.1,32.1,0,0,0,26.9-16h74.2A32.1,32.1,0,0,0,192,208a32.1,32.1,0,0,0,26.9-16h21.1a8,8,0,0,0,8-8V120A8,8,0,0,0,240,112ZM144,72v40H58Zm40,96a16,16,0,1,1,16-16A16,16,0,0,1,184,168ZM72,168a16,16,0,1,1,16-16A16,16,0,0,1,72,168ZM160,112H160V64.8l33.7,47.2Z' fill='%2300C2FF'/></svg>" type="image/svg+xml">
+    <meta name="description"
+        content="La plataforma integral para gestionar turnos, stock de aceites y el historial de tus clientes en un solo lugar. Moderniza tu taller y aumenta tu rentabilidad hoy mismo.">
+
+    <!-- Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CSS (via CDN for standalone) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#060B19',
+                            card: '#0D152C',
+                            primary: '#0066FF',
+                            primaryHover: '#0052CC',
+                            accent: '#00C2FF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-brand-bg text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-brand-primary selection:text-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent border-transparent py-4 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <i class="ph-fill ph-car-profile text-brand-accent text-3xl"></i>
+                    <span class="text-white text-2xl font-bold tracking-tight">LubriControl</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio"
+                        class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Inicio</a>
+                    <a href="#caracteristicas"
+                        class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Características</a>
+                    <a href="#beneficios"
+                        class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Beneficios</a>
+                    <a href="#clientes"
+                        class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Clientes</a>
+                </div>
+
+                <!-- CTA / Mobile Toggle -->
+                <div class="flex items-center space-x-4">
+                    <a href="#cta"
+                        class="hidden md:inline-flex btn-primary text-white text-sm font-semibold px-6 py-2.5 rounded-full">
+                        Probar Gratis
+                    </a>
+                    <button id="mobile-menu-btn"
+                        class="md:hidden text-white focus:outline-none focus:text-brand-accent">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden glass-nav absolute w-full top-full left-0 border-t border-white/10">
+            <div class="px-4 py-6 space-y-4 flex flex-col items-center">
+                <a href="#inicio" class="text-base font-medium text-white">Inicio</a>
+                <a href="#caracteristicas" class="text-base font-medium text-white">Características</a>
+                <a href="#beneficios" class="text-base font-medium text-white">Beneficios</a>
+                <a href="#cta"
+                    class="text-base font-medium text-white bg-brand-primary/20 border border-brand-primary/50 px-6 py-2 rounded-full mt-2">Probar
+                    Gratis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Effects -->
+        <div
+            class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-brand-primary/10 to-transparent blur-3xl">
+        </div>
+        <div class="absolute bottom-0 left-0 -z-10 w-1/3 h-64 bg-brand-accent/10 blur-3xl rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+                Toma el control total de tu <br class="hidden md:block" />
+                <span class="text-gradient-primary">Centro de Lubricación.</span>
+            </h1>
+
+            <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-400 font-light mb-10 leading-relaxed">
+                La plataforma integral para gestionar turnos, stock de aceites y el historial de tus clientes en un solo
+                lugar. Moderniza tu taller y aumenta tu rentabilidad hoy mismo.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16">
+                <a href="#cta"
+                    class="btn-primary w-full sm:w-auto text-white font-semibold text-lg px-8 py-4 rounded-full flex justify-center items-center gap-2">
+                    Iniciar Prueba Gratuita
+                    <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Hero Image (Full Width) -->
+        <div class="relative w-full mt-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute inset-0 bg-brand-primary/20 blur-3xl -z-10"></div>
+            <img src="hero_bg.png" alt="Recepción de vehículos en Lubricentro"
+                class="hero-dashboard-img w-full object-cover shadow-2xl h-[400px] sm:h-[500px] lg:h-[700px] object-center">
+            <div class="absolute inset-0 bg-brand-primary/30 mix-blend-multiply pointer-events-none"></div>
+
+            <!-- Floating Card Detail -->
+            <div class="absolute bottom-8 left-4 lg:left-12 max-w-xs bg-brand-card/90 backdrop-blur border border-white/10 p-4 rounded-xl shadow-2xl flex items-center gap-4 animate-bounce"
+                style="animation-duration: 3s; animation-direction: alternate;">
+                <div class="bg-emerald-500/20 p-3 rounded-lg text-emerald-400">
+                    <i class="ph-fill ph-check-circle text-2xl"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-white font-semibold text-sm">Turno Confirmado</p>
+                    <p class="text-slate-400 text-xs text-nowrap">Toyota Hilux - Recepción</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section 3x2 Grid -->
+    <section id="caracteristicas" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Herramientas creadas para la <span
+                        class="text-brand-accent">satisfacción total</span> de tus clientes</h2>
+                <p class="text-lg text-slate-400">Lleva tu negocio al siguiente nivel con funcionalidades diseñadas
+                    específicamente para lubricentros.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Feature 1 -->
+                <div class="card-glow p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-wrapper w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ph-duotone ph-calendar-check text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Agenda Inteligente de Turnos</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Optimiza tu flujo de trabajo. Permite que tus
+                        clientes reserven online y evita amontonamientos en el taller. Gestión de calendarios en tiempo
+                        real.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card-glow p-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-wrapper w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ph-duotone ph-package text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Control de Stock Automatizado</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">No pierdas ventas por falta de insumos.
+                        Seguimiento preciso de filtros, aceites y aditivos con alertas de stock bajo.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card-glow p-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-wrapper w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ph-duotone ph-clipboard-text text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Historial Digital de Mantenimiento</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Fideliza a tus clientes con un registro
+                        histórico de cada cambio de aceite y servicio realizado. Consulta el pasado de cada vehículo en
+                        segundos.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="card-glow p-8" data-aos="fade-up" data-aos-delay="400">
+                    <div class="icon-wrapper w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ph-duotone ph-chart-line-up text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Indicadores de Servicios Realizados</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Monitorea la productividad de tu equipo.
+                        Visualiza cuántos servicios se completan al día, semana o mes con paneles intuitivos.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="card-glow p-8" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon-wrapper w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ph-duotone ph-presentation-chart text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Estadísticas y Reportes de Negocio</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Toma decisiones basadas en datos. Analiza tus
+                        productos más vendidos y los márgenes de ganancia con reportes detallados.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="card-glow p-8" data-aos="fade-up" data-aos-delay="600">
+                    <div class="icon-wrapper w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="ph-duotone ph-bell-ringing text-3xl text-brand-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Recordatorios Automáticos</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Notificaciones vía mail o SMS para próximos
+                        cambios de aceite. Mantén a tus clientes regresando a tiempo de forma 100% automática.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="beneficios" class="py-24 relative border-t border-white/5 bg-brand-card/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text -->
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Estamos enfocados en <span
+                            class="text-brand-primary">garantizar el éxito</span> de tu taller</h2>
+                    <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                        Nuestro software no solo es una herramienta, es el socio tecnológico que acompaña el crecimiento
+                        de tu centro de lubricación, permitiéndote concentrarte en el servicio.
+                    </p>
+
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-brand-primary/20 text-brand-primary p-2 flex-shrink-0 rounded-full mt-1">
+                                <i class="ph-bold ph-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">Adiós al Papel</h4>
+                                <p class="text-slate-400 text-sm">Digitaliza todas las fichas de tus clientes y accede
+                                    desde cualquier dispositivo (Celular, Tablet o PC).</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-brand-primary/20 text-brand-primary p-2 flex-shrink-0 rounded-full mt-1">
+                                <i class="ph-bold ph-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">Recordatorios Automáticos</h4>
+                                <p class="text-slate-400 text-sm">El sistema avisa a tus clientes cuándo les toca su
+                                    próximo cambio de aceite según el kilometraje estimado.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-brand-primary/20 text-brand-primary p-2 flex-shrink-0 rounded-full mt-1">
+                                <i class="ph-bold ph-check text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-2">Seguridad de Datos</h4>
+                                <p class="text-slate-400 text-sm">Tu información y la de tus clientes está protegida en
+                                    la nube con los más altos estándares de seguridad informática.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <!-- Graphic/Video Replacement Image -->
+                <!-- Graphic/Video Replacement Image -->
+                <div class="lg:w-1/2 relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+                    data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80"
+                        alt="Dashboard y estadísticas de la aplicación"
+                        class="object-cover w-full h-full opacity-80 hover:opacity-100 transition-all duration-500 blur-sm hover:blur-none">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#060B19] to-transparent mix-blend-multiply pointer-events-none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof (Clients) Section -->
+    <section id="clientes" class="py-20 bg-[#060B19] relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h3 class="text-xl font-semibold text-slate-300 mb-10 max-w-3xl mx-auto">
+                <span class="text-white text-gradient">"Más de 100 centros de lubricación ya confían</span> en nuestra
+                tecnología para organizar su día a día."
+            </h3>
+
+            <div
+                class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center gap-2 font-bold text-xl text-white">
+                    <i class="ph-fill ph-car text-3xl"></i> AutoService Pro
+                </div>
+                <div class="flex items-center gap-2 font-bold text-xl text-white">
+                    <i class="ph-fill ph-wrench text-3xl"></i> LubriExpress
+                </div>
+                <div class="flex items-center gap-2 font-bold text-xl text-white">
+                    <i class="ph-fill ph-oil-bottle text-3xl"></i> MotorCare
+                </div>
+                <div class="flex items-center gap-2 font-bold text-xl text-white">
+                    <i class="ph-fill ph-gauge text-3xl"></i> TotalLube
+                </div>
+                <div class="flex items-center gap-2 font-bold text-xl text-white">
+                    <i class="ph-fill ph-headlights text-3xl"></i> SpeedCar
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Style (Referenced in sample image) -->
+    <section class="py-24 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-12 items-center">
+
+            <div class="lg:w-1/3 text-center lg:text-left" data-aos="fade-right">
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Lo que nuestros clientes dicen de nosotros
+                </h2>
+                <p class="text-slate-400 mb-8">Contamos con los mejores expertos para elevar tu lubricentro al siguiente
+                    nivel. ¡Pruébalo y lo verás!</p>
+
+            </div>
+
+            <div class="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
+                <!-- Testimonial 1 -->
+                <div class="card-glow p-8 flex flex-col justify-between">
+                    <div class="text-brand-accent mb-4">
+                        <i class="ph-fill ph-quotes text-4xl opacity-50"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">"Desde que implementamos LubriControl,
+                        dejamos atrás las planillas en Excel. Nuestros clientes aman recibir el mensaje cuando les toca
+                        el próximo cambio de aceite. Aumentó un 30% la retención."</p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="Kevin Yang" class="w-12 h-12 rounded-full border-2 border-brand-primary">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Martín Gutiérrez</h4>
+                            <p class="text-xs text-slate-400">Dueño de LubriExpress Sur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="card-glow p-8 flex flex-col justify-between">
+                    <div class="text-brand-accent mb-4">
+                        <i class="ph-fill ph-quotes text-4xl opacity-50"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6 italic">"El control de stock de filtros era un
+                        dolor de cabeza diario. Ahora la plataforma nos alerta cuando necesitamos pedir más stock al
+                        proveedor. La mejor inversión."</p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="Maria Foster" class="w-12 h-12 rounded-full border-2 border-brand-primary">
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Sofía Arcuri</h4>
+                            <p class="text-xs text-slate-400">Administradora en MotorCare</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Final CTA Area -->
+    <section id="cta" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" data-aos="zoom-in">
+        <div
+            class="cta-section rounded-3xl p-10 md:p-16 lg:p-24 text-center border border-white/10 shadow-[0_0_80px_-20px_rgba(0,102,255,0.4)] relative">
+
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                    ¿Listo para llevar tu lubricentro al <span class="text-brand-accent">siguiente nivel?</span>
+                </h2>
+                <p class="text-lg md:text-xl text-slate-400 mb-10">
+                    Únete a los talleres que ya están ahorrando horas de administración cada semana.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="#"
+                        class="btn-primary w-full sm:w-auto text-white font-bold text-lg px-8 py-4 rounded-full shadow-xl">
+                        Crear mi cuenta DEMO ahora
+                        <span class="block text-xs font-normal opacity-80 mt-1">(Sin tarjeta de crédito)</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Glow inside box -->
+            <div
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-2 bg-gradient-to-r from-transparent via-brand-primary to-transparent blur-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-[#030610] pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <!-- Branding -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="ph-fill ph-car-profile text-brand-accent text-3xl"></i>
+                        <span class="text-white text-2xl font-bold tracking-tight">LubriControl</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm mb-6 leading-relaxed">
+                        Contamos con el mejor sistema enfocado a lubricentros y talleres rápidos para elevar tu negocio
+                        al siguiente nivel. ¡Pruébalo, te lo demostraremos!
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white transition-colors"><i
+                                class="ph-fill ph-linkedin-logo text-lg"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white transition-colors"><i
+                                class="ph-fill ph-twitter-logo text-lg"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white transition-colors"><i
+                                class="ph-fill ph-facebook-logo text-lg"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-white transition-colors"><i
+                                class="ph-fill ph-instagram-logo text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links 1 -->
+                <div>
+                    <h5 class="text-white font-bold mb-6">Producto</h5>
+                    <ul class="space-y-4">
+                        <li><a href="#"
+                                class="text-slate-400 text-sm hover:text-brand-accent transition-colors">Características</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-slate-400 text-sm hover:text-brand-accent transition-colors">Precios</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-slate-400 text-sm hover:text-brand-accent transition-colors">Integraciones</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-slate-400 text-sm hover:text-brand-accent transition-colors">Actualizaciones</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Links 2 -->
+                <div>
+                    <h5 class="text-white font-bold mb-6">Soporte</h5>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-slate-400 text-sm hover:text-brand-accent transition-colors">Centro
+                                de Ayuda</a></li>
+                        <li><a href="#"
+                                class="text-slate-400 text-sm hover:text-brand-accent transition-colors">Contacto</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-slate-400 text-sm hover:text-brand-accent transition-colors">Términos del
+                                Servicio</a></li>
+                        <li><a href="#"
+                                class="text-slate-400 text-sm hover:text-brand-accent transition-colors">Política de
+                                Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/10 pt-8 flex justify-between items-center flex-col sm:flex-row gap-4">
+                <p class="text-slate-500 text-sm">© Copyright 2024 LubriControl. Todos los derechos reservados.</p>
+                <p class="text-slate-500 text-sm">Email: <a href="mailto:hola@lubricontrol.com"
+                        class="hover:text-white transition-colors">hola@lubricontrol.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script Initialization (linked externally) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
