@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizaciones | LubriControl</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'><path d='M240,112H210.3l-34.6-48.4A16.2,16.2,0,0,0,162.6,56H72a15.9,15.9,0,0,0-14.3,8.9L30.9,112H16a8,8,0,0,0-8,8v64a8,8,0,0,0,8,8H37.1A32.1,32.1,0,0,0,64,208a32.1,32.1,0,0,0,26.9-16h74.2A32.1,32.1,0,0,0,192,208a32.1,32.1,0,0,0,26.9-16h21.1a8,8,0,0,0,8-8V120A8,8,0,0,0,240,112ZM144,72v40H58Zm40,96a16,16,0,1,1,16-16A16,16,0,0,1,184,168ZM72,168a16,16,0,1,1,16-16A16,16,0,0,1,72,168ZM160,112H160V64.8l33.7,47.2Z' fill='%2300C2FF'/></svg>" type="image/svg+xml">
+    
+    <!-- Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#060B19',
+                            card: '#0D152C',
+                            primary: '#0066FF',
+                            primaryHover: '#0052CC',
+                            accent: '#00C2FF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-brand-bg text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-brand-primary selection:text-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent border-transparent py-4 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="ph-fill ph-car-profile text-brand-accent text-3xl"></i>
+                    <a href="index.html" class="text-white text-2xl font-bold tracking-tight">LubriControl</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#inicio" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Inicio</a>
+                    <a href="index.html#caracteristicas" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Características</a>
+                    <a href="precios.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Precios</a>
+                    <a href="contacto.html" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Contactanos</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 min-h-screen">
+        <div class="absolute top-0 right-0 -z-10 w-full h-full bg-gradient-to-b from-brand-primary/5 to-transparent blur-3xl"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-xl flex items-center justify-center">
+                        <i class="ph-bold ph-rocket-launch text-2xl"></i>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">Últimas <span class="text-gradient-primary">Actualizaciones</span></h1>
+                </div>
+                
+                <div class="space-y-8">
+                    <!-- Update 1 -->
+                    <div class="card-glow p-8 bg-brand-card/50 border border-white/10 rounded-[2rem] relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-xs font-bold text-brand-accent uppercase tracking-widest bg-brand-primary/10 px-3 py-1 rounded-full border border-brand-primary/20">Versión 2.4.0</span>
+                                <h3 class="text-2xl font-bold text-white mt-3">Módulo de Presupuestos Inteligente</h3>
+                            </div>
+                            <span class="text-sm text-slate-500 font-medium">Mayo 2026</span>
+                        </div>
+                        <ul class="space-y-3 text-slate-400">
+                            <li class="flex items-center gap-3"><i class="ph ph-check-circle text-emerald-500"></i> Nuevo generador de PDFs para presupuestos profesionales.</li>
+                            <li class="flex items-center gap-3"><i class="ph ph-check-circle text-emerald-500"></i> Integración directa con WhatsApp para envío de fichas de servicio.</li>
+                            <li class="flex items-center gap-3"><i class="ph ph-check-circle text-emerald-500"></i> Mejora en el sistema de búsqueda de insumos compatibles.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Update 2 -->
+                    <div class="card-glow p-8 bg-brand-card/50 border border-white/10 rounded-[2rem] opacity-80">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest bg-white/5 px-3 py-1 rounded-full border border-white/10">Versión 2.3.5</span>
+                                <h3 class="text-2xl font-bold text-white mt-3">Optimización de Stock Crítico</h3>
+                            </div>
+                            <span class="text-sm text-slate-500 font-medium">Abril 2026</span>
+                        </div>
+                        <p class="text-slate-400">Mejoramos el algoritmo de alertas para avisarte con mayor precisión cuando te quedas sin los filtros más vendidos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-[#030610] pt-20 pb-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-slate-500 text-sm">© Copyright 2024 LubriControl. Todos los derechos reservados.</p>
+            <a href="index.html" class="text-brand-accent hover:underline mt-4 inline-block">Volver al Inicio</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({duration: 800, once: true});</script>
+</body>
+</html>
