@@ -1,4 +1,9 @@
 /* style.css */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 body {
     background-color: #060B19;
     background-image: 
